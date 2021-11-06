@@ -3,30 +3,23 @@
 const mongoose = require("mongoose");
 const CryptoJS = require("crypto-js");
 
-const db_url = "cluster0.c7k47.mongodb.net";
-const db_name = "password-db";
-// FIXME: store three values below to safe place
-const db_user = "admin";
-const db_password = "Intelligent";
-const secret_key = "";
-//
-const url = `mongodb+srv://${db_user}:${db_password}@${db_url}/${db_name}`;
+require("dotenv").config();
+const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_URL}/${process.env.DB_NAME}`;
 
 async function main() {
     function encrypt_content(content) {
-        let ciphertext = CryptoJS.AES.encrypt(content, secret_key).toString();
+        let ciphertext = CryptoJS.AES.encrypt(content, process.env.SECRET_KEY).toString();
         return ciphertext;
     }
 
     function decrypt_content(content) {
-        let bytes = CryptoJS.AES.decrypt(content, secret_key);
+        let bytes = CryptoJS.AES.decrypt(content, process.env.SECRET_KEY);
         let originalText = bytes.toString(CryptoJS.enc.Utf8);
         return originalText;
     }
 
     function intialize_collection() {
         const Schema = mongoose.Schema;
-        // define schema
         const SecretInfoSchema = new Schema(
             {
                 user_id: {
@@ -73,8 +66,7 @@ async function main() {
             console.log(new_data);
             return new_data;
         } catch (error) {
-            console.log("can't ssave manyti");
-            // console.log(error);
+            console.log(error);
             return [];
         }
     }
@@ -88,9 +80,9 @@ async function main() {
         await SecretInfoModel.deleteMany(query);
     }
 
-    // await insert_multi_data([{ title: "computer pass", content: "abcxxx" }]);
+    await insert_multi_data([{ user_id: "11111", title: "computer pass", content: "abcxxx" }]);
     // await insert_multi_data([{ user_id: "1234", title: "computer pass", content: "abcxxx" }]);
-    // console.log(await get_data());
+    console.log(await get_data());
     // await delete_data({ user_id: "1234" });
 }
 
