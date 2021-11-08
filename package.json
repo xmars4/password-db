@@ -1,24 +1,29 @@
 {
-  "name": "password-db",
-  "version": "1.0.0",
-  "description": "Connect to google speadsheet and store your secret information",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "#mongodb",
-    "#password",
-    "#db"
-  ],
-  "author": "XMars",
-  "license": "ISC",
-  "dependencies": {
-    "crypto-js": "^4.1.1",
-    "dotenv": "^10.0.0",
-    "mongoose": "^6.0.12"
-  },
-  "devDependencies": {
-    "typescript": "^4.4.4"
-  }
+    "name": "password-db",
+    "version": "2.0.2",
+    "description": "Connect to MongoDB and store secret information",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "#mongodb",
+        "#password",
+        "#db"
+    ],
+    "author": "XMars",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/xmars4/password-db"
+    },
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "crypto-js": "^4.1.1",
+        "dotenv": "^10.0.0",
+        "mongoose": "^6.0.12"
+    },
+    "devDependencies": {
+        "typescript": "^4.4.4"
+    }
 }
