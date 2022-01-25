@@ -1,6 +1,6 @@
 {
     "name": "password-db",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "description": "Connect to MongoDB and store secret information",
     "main": "index.js",
     "scripts": {
@@ -18,9 +18,9 @@
         "url": "https://github.com/xmars4/password-db"
     },
     "dependencies": {
+        "aes256": "^1.1.0",
         "bcrypt": "^5.0.1",
         "crypto-js": "^4.1.1",
-        "dotenv": "^10.0.0",
         "mongoose": "^6.0.12"
     },
     "devDependencies": {
